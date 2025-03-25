@@ -67,3 +67,7 @@ npm run dev
 ## Licença
 
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes. 
+
+## Deploy
+
+O projeto está configurado para deploy automático na Vercel. 
