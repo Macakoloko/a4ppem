@@ -1,9 +1,13 @@
-import "@/styles/globals.css"
+import "./globals.css"
 import { Inter } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/lib/auth-context"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata = {
   title: "CRM",
