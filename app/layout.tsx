@@ -1,4 +1,3 @@
-import "./globals.css"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/lib/auth-context"
 

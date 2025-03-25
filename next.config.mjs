@@ -16,19 +16,28 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
+  compiler: {
+    styledComponents: true,
   },
+  optimizeFonts: false,
   webpack: (config, { isServer }) => {
     config.ignoreWarnings = [
       { module: /node_modules\/@radix-ui/ },
     ];
     
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['ignore-loader'],
+    });
+    
     return config;
   },
-  optimizeFonts: false,
+  experimental: {
+    css: false,
+    webpackBuildWorker: true,
+    parallelServerBuildTraces: true,
+    parallelServerCompiles: true,
+  },
 }
 
 mergeConfig(nextConfig, userConfig)
