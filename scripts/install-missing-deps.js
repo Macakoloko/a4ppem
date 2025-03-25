@@ -4,8 +4,9 @@
 
 const { execSync } = require('child_process');
 
-console.log('Instalando dependências potencialmente faltantes do Radix UI...');
+console.log('Instalando dependências potencialmente faltantes...');
 
+// Lista de dependências do Radix UI
 const dependencies = [
   '@radix-ui/react-switch',
   '@radix-ui/react-avatar', 
@@ -25,9 +26,22 @@ const dependencies = [
   'recharts'
 ];
 
+// Dependências CSS importantes para o Next.js
+const cssDependencies = [
+  'autoprefixer',
+  'postcss',
+  'tailwindcss'
+];
+
 try {
-  // Instala todas as dependências
+  // Reinstala as dependências críticas do CSS
+  console.log('Reinstalando dependências CSS críticas...');
+  execSync(`npm install ${cssDependencies.join(' ')} --save-dev`, { stdio: 'inherit' });
+  
+  // Instala todas as dependências do Radix UI
+  console.log('Instalando dependências do Radix UI...');
   execSync(`npm install ${dependencies.join(' ')}`, { stdio: 'inherit' });
+  
   console.log('Todas as dependências foram instaladas com sucesso.');
 } catch (error) {
   console.error('Erro ao instalar dependências:', error.message);
