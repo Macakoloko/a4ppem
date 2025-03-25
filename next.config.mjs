@@ -21,6 +21,13 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  webpack: (config, { isServer }) => {
+    config.ignoreWarnings = [
+      { module: /node_modules\/@radix-ui/ },
+    ];
+    
+    return config;
+  },
 }
 
 mergeConfig(nextConfig, userConfig)
