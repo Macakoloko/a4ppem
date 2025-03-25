@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 340 82% 52%;
+    --radius: 0.5rem;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 340 82% 52%;
+
+    /* Sidebar variables */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos personalizados para o calendário */
+.rbc-calendar {
+  @apply font-sans;
+}
+
+.rbc-toolbar {
+  @apply mb-4;
+}
+
+.rbc-toolbar button {
+  @apply rounded-md border border-input bg-background px-3 py-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+.rbc-toolbar button.rbc-active {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90;
+}
+
+.rbc-header {
+  @apply border-border bg-muted/50 py-2 font-medium;
+}
+
+.rbc-time-header-content {
+  @apply border-border;
+}
+
+.rbc-time-content {
+  @apply border-border;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  @apply border-border/30;
+}
+
+.rbc-timeslot-group {
+  @apply border-border;
+}
+
+.rbc-time-view {
+  @apply rounded-md border-border;
+}
+
+.rbc-month-view {
+  @apply rounded-md border-border;
+}
+
+.rbc-month-row {
+  @apply border-border;
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  @apply border-border;
+}
+
+.rbc-off-range-bg {
+  @apply bg-muted/30;
+}
+
+.rbc-today {
+  @apply bg-primary/5;
+}
+
+.rbc-agenda-view table.rbc-agenda-table {
+  @apply border-border;
+}
+
+.rbc-agenda-view table.rbc-agenda-table thead > tr > th {
+  @apply border-border bg-muted/50 py-2;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+  @apply border-border;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr + tr {
+  @apply border-border;
+}
+
+.rbc-time-gutter {
+  @apply text-muted-foreground;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  @apply border-border/20;
+}
+
+.rbc-current-time-indicator {
+  @apply bg-primary;
+}
+
+.rbc-event {
+  @apply rounded-md border-none;
+}
+
+.rbc-show-more {
+  @apply text-primary hover:text-primary/80;
+}
+
+.rbc-day-weekend {
+  @apply bg-muted/20;
+}
+
+/* Estilos para o FullCalendar */
+.calendar-container {
+  @apply rounded-lg border shadow-sm;
+  height: 700px; /* Altura fixa para o calendário */
+}
+
+/* Container para o layout lado a lado */
+.calendar-container-side {
+  height: 500px;
+}
+
+/* Cabeçalho do calendário */
+.fc .fc-toolbar {
+  @apply px-4 py-3 flex flex-wrap items-center justify-between gap-2;
+}
+
+.fc .fc-toolbar-title {
+  @apply text-base font-semibold md:text-xl flex-1 text-center;
+}
+
+.fc .fc-button-primary {
+  @apply bg-primary border-primary hover:bg-primary/90 hover:border-primary/90 focus:ring-primary/30 focus:ring-2 focus:ring-offset-2 text-xs px-2 py-1 md:text-sm md:px-3 md:py-1.5;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  @apply bg-primary/80 border-primary/80;
+}
+
+/* Células e dias */
+.fc .fc-day-today {
+  @apply bg-primary/5;
+}
+
+.fc .fc-col-header-cell {
+  @apply bg-muted/30 py-2 text-xs md:py-3 md:text-sm font-medium;
+}
+
+.fc-col-header-cell-cushion {
+  @apply py-1 px-1;
+}
+
+.fc .fc-timegrid-slot,
+.fc .fc-daygrid-day {
+  @apply transition-colors duration-200 hover:bg-muted/20;
+}
+
+.fc-theme-standard td, 
+.fc-theme-standard th,
+.fc-theme-standard .fc-scrollgrid {
+  @apply border-border;
+}
+
+/* Eventos */
+.fc-event {
+  @apply cursor-pointer transition-opacity duration-200 hover:opacity-90 text-xs md:text-sm rounded-md overflow-hidden;
+}
+
+.fc-daygrid-event {
+  @apply text-xs whitespace-nowrap overflow-hidden text-ellipsis py-0.5 px-1;
+}
+
+.fc-event-time, 
+.fc-event-title {
+  @apply font-medium px-1 truncate text-xs md:text-sm;
+}
+
+.fc-event-title {
+  @apply text-xs md:text-sm max-w-full truncate block;
+}
+
+/* Ajustes para layout lateral */
+.fc-daygrid-day-number {
+  @apply text-xs md:text-sm p-1 md:p-2;
+}
+
+.fc-daygrid-day-top {
+  @apply justify-center md:justify-end;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .calendar-container-side {
+    height: 350px;
+  }
+  
+  .fc .fc-toolbar {
+    @apply p-2;
+  }
+  
+  .fc .fc-toolbar-title {
+    @apply text-sm;
+  }
+  
+  .fc-header-toolbar.fc-toolbar {
+    @apply mb-0;
+  }
+  
+  .fc-daygrid-day-frame {
+    @apply min-h-[2.5rem];
+  }
+  
+  .fc .fc-daygrid-day.fc-day-today {
+    @apply bg-primary/10;
+  }
+  
+  .fc .fc-col-header-cell {
+    @apply py-1;
+  }
+  
+  .fc-day-appointments {
+    @apply max-h-[400px] overflow-y-auto;
+  }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 375px) {
+  .fc-toolbar-chunk {
+    @apply flex-wrap justify-center;
+  }
+  
+  .fc .fc-toolbar-title {
+    @apply mb-2 w-full;
+  }
+  
+  .calendar-container-side {
+    height: 300px;
+  }
+}
+
+/* Estilização para a lista de agendamentos do dia */
+.day-appointments {
+  max-height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.day-appointments::-webkit-scrollbar {
+  width: 6px;
+}
+
+.day-appointments::-webkit-scrollbar-track {
+  @apply bg-muted/30 rounded-full;
+}
+
+.day-appointments::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+}
+
+/* Estilo específico para o mobile */
+@media (max-width: 768px) {
+  .day-appointments {
+    max-height: 350px;
+  }
+}
+
+/* Estilos para visualização de lista de agendamentos */
+.appointment-time-block {
+  @apply bg-muted/20 rounded-md flex flex-col items-center justify-center min-w-[56px] h-12 select-none;
+}
+
+.appointment-time-block .start-time {
+  @apply text-sm font-medium text-foreground;
+}
+
+.appointment-time-block .time-separator {
+  @apply text-xs text-muted-foreground leading-none;
+}
+
+.appointment-time-block .end-time {
+  @apply text-xs text-muted-foreground;
+}
+
+.appointment-card {
+  @apply bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow p-3 flex flex-col sm:flex-row gap-3 items-start;
+}
+
+.appointment-card .appointment-info {
+  @apply flex-1 min-w-0;
+}
+
+.appointment-card .appointment-client {
+  @apply font-medium truncate text-sm mb-0.5;
+}
+
+.appointment-card .appointment-service {
+  @apply text-xs text-muted-foreground truncate mb-1;
+}
+
+.appointment-card .appointment-professional {
+  @apply text-xs text-muted-foreground truncate;
+}
+
+.appointment-card .appointment-actions {
+  @apply flex items-center gap-2 ml-auto;
+}
+
+.appointment-date-nav {
+  @apply flex items-center justify-between border-b pb-3 mb-4;
+}
+
+.appointment-date-nav .nav-controls {
+  @apply flex items-center gap-2;
+}
+
+.appointment-date-nav .date-display {
+  @apply flex items-center gap-2 text-sm md:text-base font-medium;
+}
+
+/* Melhorias responsivas para a visualização de agendamentos */
+@media (max-width: 640px) {
+  .appointment-card {
+    @apply p-2.5;
+  }
+  
+  .appointment-time-block {
+    @apply min-w-[48px] h-10;
+  }
+  
+  .appointment-time-block .start-time {
+    @apply text-xs;
+  }
+  
+  .appointment-time-block .end-time {
+    @apply text-[10px];
+  }
+  
+  .appointment-date-nav .date-display {
+    @apply text-xs;
+  }
+}
+
