@@ -1,13 +1,6 @@
 import "./globals.css"
-import { Inter } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { AuthProvider } from "@/lib/auth-context"
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-inter',
-})
 
 export const metadata = {
   title: "CRM",
@@ -17,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
+      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

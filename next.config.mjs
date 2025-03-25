@@ -28,6 +28,7 @@ const nextConfig = {
     
     return config;
   },
+  optimizeFonts: false,
 }
 
 mergeConfig(nextConfig, userConfig)
