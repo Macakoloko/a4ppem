@@ -7,11 +7,18 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle, Loader2 } from "lucide-react"
-import { useAuth } from "@/lib/auth-context"
+import { useAuth } from "@/context/auth-context"
 
 const authFormSchema = z.object({
   email: z.string().email({
@@ -135,4 +142,4 @@ export function AuthForm() {
       </CardContent>
     </Card>
   )
-} 
+}
